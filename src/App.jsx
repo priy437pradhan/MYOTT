@@ -6,8 +6,8 @@ import LoginModal from './components/LoginModal';
 const Home = lazy(() => import('./pages/Home'));
 const MovieDetails = lazy(() => import('./pages/MovieDetails'));
 const Watchlist = lazy(() => import('./pages/Watchlist'));
-const Header = lazy(() => import('./components/Header'));
-const Footer = lazy(() => import('./components/Footer'));
+const Header = lazy(() => import('./components/header'));
+const Footer = lazy(() => import('./components/footer'));
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(true);
