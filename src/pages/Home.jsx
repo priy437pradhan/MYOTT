@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import VideoCard from '../components/VideoCard';
 import { fetchMovies } from '../api';
 
@@ -13,7 +13,6 @@ function Home() {
         setMovies(data);
       } catch (error) {
         setError('Failed to fetch movies');
-      
       }
     };
 
@@ -28,12 +27,14 @@ function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {movies.map(movie => (
           <VideoCard
-           key={movie.imdbID}
-            title={movie.Title}
-            thumbnail={movie.Poster}
-            description={movie.Plot}
-            videoId={movie.imdbID}
-          />
+          key={movie.id}
+          title={movie.title}
+          thumbnail={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+          // description={movie.overview}
+          videoId={movie.id}
+          releaseDate={movie.release_date} 
+          voteAverage={movie.vote_average} 
+        />
         ))}
       </div>
     </div>

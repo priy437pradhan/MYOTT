@@ -32,15 +32,15 @@ function WatchList() {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
         {movies.map((movie) => (
           <Link
-            key={movie.imdbID}
-            to={`/movie/${movie.imdbID}`}
+            key={movie.id} 
+            to={`/movie/${movie.id}`}
             className="group block max-w-sm bg-gray-900 rounded-lg overflow-hidden shadow-lg transition-transform transform hover:scale-105"
           >
             <div className="relative">
               <img
                 className="w-full h-72 object-cover"
-                src={movie.Poster}
-                alt={movie.Title}
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
+                alt={movie.title} 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity"></div>
               <div className="absolute bottom-0 left-0 p-4 flex items-center justify-between w-full">
@@ -50,13 +50,13 @@ function WatchList() {
                 </button>
                 <div className="text-yellow-400 flex items-center space-x-1">
                   <FaStar className="text-xl" />
-                  <span className="text-sm">{movie.Rating}</span>
+                  <span className="text-sm">{movie.vote_average || 'N/A'}</span> 
                 </div>
               </div>
             </div>
             <div className="p-4">
-              <h3 className="text-xl font-semibold text-white mb-2">{movie.Title}</h3>
-              <p className="text-gray-300 text-sm truncate">{movie.Plot}</p>
+              <h3 className="text-xl font-semibold text-white mb-2">{movie.title}</h3> 
+              <p className="text-gray-300 text-sm truncate">{movie.overview}</p>
             </div>
           </Link>
         ))}
